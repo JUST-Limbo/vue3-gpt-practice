@@ -1,0 +1,89 @@
+@mixin FlashingCursor {
+  animation: blink 1s steps(5, start) infinite;
+  content: '▋';
+  margin-left: 0.25rem;
+  vertical-align: baseline;
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 0;
+  }
+
+  25%,
+  50% {
+    opacity: 1;
+  }
+}
+
+.chat-markdown-body-rendering {
+  &:empty:after {
+    content: '思考中...';
+    animation: blink 1s steps(5, start) infinite;
+    margin-left: 0.25rem;
+    vertical-align: baseline;
+  }
+
+  //   // 打字机光标(废案)
+  //   > :not(ol):not(ul):not(pre):last-child:after,
+  //   > pre:last-child code:after,
+  //   > ol:last-child li:last-child:after,
+  //   > ul:last-child li:last-child:after {
+  //     @include FlashingCursor;
+  //   }
+}
+
+.chat-markdown-body {
+  line-height: 1.5;
+  background: red;
+
+  .highlight-pre {
+    position: relative;
+    border-radius: 6px;
+    margin: 1rem 0;
+    overflow: hidden;
+
+    .highlight-code {
+      display: block;
+      font-size: 12px;
+      padding: 1rem;
+      overflow: auto;
+    }
+
+    &:hover {
+      .highlight-copy-btn {
+        transform: translateX(-60px);
+        opacity: 0.5;
+      }
+    }
+    .highlight-copy-btn {
+      position: absolute;
+      right: -50px;
+      top: 1em;
+      cursor: pointer;
+      padding: 0 5px;
+      background-color: var(--black);
+      color: var(--white);
+      border: var(--border-in-light);
+      border-radius: 10px;
+      transform: translateX(0);
+      opacity: 0;
+      transition: all 0.3s linear;
+      user-select: none;
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+
+  :not(.highlight-pre) code {
+    background-color: #1b1f230d;
+    border-radius: 3px;
+    color: #476582;
+    font-size: 0.85em;
+    margin: 0;
+    padding: 0.2rem 0.4rem;
+  }
+}
