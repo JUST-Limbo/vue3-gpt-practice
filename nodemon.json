@@ -1,0 +1,5 @@
+{
+  "watch": ["server"],
+  "ext": "js,mjs,cjs",
+  "ignore": ["server/chat-history.json"]
+}

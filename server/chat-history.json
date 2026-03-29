@@ -1,0 +1,215 @@
+[
+  {
+    "uid": "c0a5e798-cc2f-472e-823c-b4b827c30436",
+    "chatRecords": [
+      {
+        "id": 394036,
+        "uid": "c0a5e798-cc2f-472e-823c-b4b827c30436",
+        "type": "question",
+        "message": "test",
+        "chatEngine": "deepseek-chat",
+        "createTime": "2026-03-28 16:12:27.000",
+        "pid": null
+      },
+      {
+        "id": 298149,
+        "uid": "c0a5e798-cc2f-472e-823c-b4b827c30436",
+        "type": "answer",
+        "message": "Hello! It looks like you just sent the word \"test.\" \n\nIf you're testing how I respond, I'm working! 😊  \nIf you meant something else or have a question, feel free to ask.",
+        "chatEngine": "deepseek-chat",
+        "createTime": "2026-03-28 16:12:27.000",
+        "pid": 394036
+      },
+      {
+        "id": 492998,
+        "uid": "c0a5e798-cc2f-472e-823c-b4b827c30436",
+        "type": "question",
+        "message": "1",
+        "chatEngine": "deepseek-chat",
+        "createTime": "2026-03-29 01:12:14.000",
+        "pid": null
+      },
+      {
+        "id": 215048,
+        "uid": "c0a5e798-cc2f-472e-823c-b4b827c30436",
+        "type": "answer",
+        "message": "您好！我看到您只输入了数字“1”。  \n\n请问您是想：  \n1. 让我从1开始数数？  \n2. 询问与数字1相关的问题（比如数学、常识）？  \n3. 还是有其他想让我帮助的？  \n\n请告诉我更多信息，我会很乐意为您解答！ 😊",
+        "chatEngine": "deepseek-chat",
+        "createTime": "2026-03-29 01:12:14.000",
+        "pid": 492998
+      },
+      {
+        "id": 741645,
+        "uid": "c0a5e798-cc2f-472e-823c-b4b827c30436",
+        "type": "question",
+        "message": "1+1",
+        "chatEngine": "deepseek-chat",
+        "createTime": "2026-03-29 01:12:19.000",
+        "pid": null
+      },
+      {
+        "id": 788863,
+        "uid": "c0a5e798-cc2f-472e-823c-b4b827c30436",
+        "type": "answer",
+        "message": "That’s a fundamental math question!  \n\n**1 + 1 = 2**  \n\nIf you’re asking in a deeper context (like binary, boolean logic, or even philosophical “oneness”), the answer can vary:  \n\n- **Binary**: \\( 1 + 1 = 10 \\) (in base 2)  \n- **Boolean algebra**: \\( 1 + 1 = 1 \\) (if “+” means OR)  \n- **Modulo 2 arithmetic**: \\( 1 + 1 = 0 \\)  \n\nBut in everyday basic arithmetic, the answer is **2**.",
+        "chatEngine": "deepseek-chat",
+        "createTime": "2026-03-29 01:12:19.000",
+        "pid": 741645
+      },
+      {
+        "id": 840956,
+        "uid": "c0a5e798-cc2f-472e-823c-b4b827c30436",
+        "type": "question",
+        "message": "1+3",
+        "chatEngine": "deepseek-chat",
+        "createTime": "2026-03-29 01:12:26.000",
+        "pid": null
+      },
+      {
+        "id": 438413,
+        "uid": "c0a5e798-cc2f-472e-823c-b4b827c30436",
+        "type": "answer",
+        "message": "The sum of **1 + 3** is **4**.",
+        "chatEngine": "deepseek-chat",
+        "createTime": "2026-03-29 01:12:26.000",
+        "pid": 840956
+      },
+      {
+        "id": 617448,
+        "uid": "c0a5e798-cc2f-472e-823c-b4b827c30436",
+        "type": "question",
+        "message": "我问你的第二个加法题目是什么",
+        "chatEngine": "deepseek-chat",
+        "createTime": "2026-03-29 01:12:35.000",
+        "pid": null
+      },
+      {
+        "id": 384403,
+        "uid": "c0a5e798-cc2f-472e-823c-b4b827c30436",
+        "type": "answer",
+        "message": "我无法查看之前的对话记录，因此不知道你之前具体问过什么题目。如果你需要我帮你解答一个新的加法问题，请直接告诉我数字，我会为你计算！ 😊",
+        "chatEngine": "deepseek-chat",
+        "createTime": "2026-03-29 01:12:35.000",
+        "pid": 617448
+      },
+      {
+        "id": 537775,
+        "uid": "c0a5e798-cc2f-472e-823c-b4b827c30436",
+        "type": "question",
+        "message": "我问你的第二个加法题目是什么",
+        "chatEngine": "deepseek-chat",
+        "createTime": "2026-03-29 01:22:51.000",
+        "pid": null
+      },
+      {
+        "id": 741837,
+        "uid": "c0a5e798-cc2f-472e-823c-b4b827c30436",
+        "type": "answer",
+        "message": "我无法查看之前的对话记录，因此不知道你之前具体问过什么题目。如果你需要我帮你解答一个新的加法问题，请直接告诉我数字，我会为你计算！ 😊",
+        "chatEngine": "deepseek-chat",
+        "createTime": "2026-03-29 01:22:51.000",
+        "pid": 537775
+      }
+    ]
+  },
+  {
+    "uid": "f0ee72a1-4e16-4e2f-ab93-64138a05dcc6",
+    "chatRecords": [
+      {
+        "id": 312001,
+        "uid": "f0ee72a1-4e16-4e2f-ab93-64138a05dcc6",
+        "type": "question",
+        "message": "1+1",
+        "chatEngine": "deepseek-chat",
+        "createTime": "2026-03-29 01:23:46.000",
+        "pid": null
+      },
+      {
+        "id": 561187,
+        "uid": "f0ee72a1-4e16-4e2f-ab93-64138a05dcc6",
+        "type": "answer",
+        "message": "That’s a fundamental math question!\n\n**1 + 1 = 2** ✅\n\nIn basic arithmetic, adding one object to another one object gives two objects.  \nThis result is foundational in mathematics and is often one of the first facts we learn.",
+        "chatEngine": "deepseek-chat",
+        "createTime": "2026-03-29 01:23:46.000",
+        "pid": 312001
+      },
+      {
+        "id": 986799,
+        "uid": "f0ee72a1-4e16-4e2f-ab93-64138a05dcc6",
+        "type": "question",
+        "message": "1+2",
+        "chatEngine": "deepseek-chat",
+        "createTime": "2026-03-29 01:23:50.000",
+        "pid": null
+      },
+      {
+        "id": 335677,
+        "uid": "f0ee72a1-4e16-4e2f-ab93-64138a05dcc6",
+        "type": "answer",
+        "message": "**1 + 2 = 3** ✅\n\nAdding 1 and 2 gives a total of 3.",
+        "chatEngine": "deepseek-chat",
+        "createTime": "2026-03-29 01:23:50.000",
+        "pid": 986799
+      },
+      {
+        "id": 706338,
+        "uid": "f0ee72a1-4e16-4e2f-ab93-64138a05dcc6",
+        "type": "question",
+        "message": "1+3",
+        "chatEngine": "deepseek-chat",
+        "createTime": "2026-03-29 01:23:52.000",
+        "pid": null
+      },
+      {
+        "id": 588153,
+        "uid": "f0ee72a1-4e16-4e2f-ab93-64138a05dcc6",
+        "type": "answer",
+        "message": "**1 + 3 = 4** ✅\n\nAdding 1 and 3 gives a total of 4.",
+        "chatEngine": "deepseek-chat",
+        "createTime": "2026-03-29 01:23:52.000",
+        "pid": 706338
+      },
+      {
+        "id": 669042,
+        "uid": "f0ee72a1-4e16-4e2f-ab93-64138a05dcc6",
+        "type": "question",
+        "message": "我问你的第一个数学题是什么",
+        "chatEngine": "deepseek-chat",
+        "createTime": "2026-03-29 01:23:58.000",
+        "pid": null
+      },
+      {
+        "id": 747158,
+        "uid": "f0ee72a1-4e16-4e2f-ab93-64138a05dcc6",
+        "type": "answer",
+        "message": "你问我的第一个数学题是：  \n**1 + 1**  \n\n我当时的回答是 **2** ✅",
+        "chatEngine": "deepseek-chat",
+        "createTime": "2026-03-29 01:23:58.000",
+        "pid": 669042
+      }
+    ]
+  },
+  {
+    "uid": "b92284c3-036b-499e-9406-58a44c1c5620",
+    "chatRecords": [
+      {
+        "id": 779195,
+        "uid": "b92284c3-036b-499e-9406-58a44c1c5620",
+        "type": "question",
+        "message": "test",
+        "chatEngine": "deepseek-chat",
+        "createTime": "2026-03-29 10:09:53.000",
+        "pid": null
+      },
+      {
+        "id": 297693,
+        "uid": "b92284c3-036b-499e-9406-58a44c1c5620",
+        "type": "answer",
+        "message": "Hello! I see you've sent the word \"test\". \n\nIs there something specific you'd like me to test or help you with? For example:\n- Testing my capabilities\n- Testing code or a system you're working on\n- Something else entirely\n\nFeel free to provide more details so I can assist you better!",
+        "chatEngine": "deepseek-chat",
+        "createTime": "2026-03-29 10:09:53.000",
+        "pid": 779195
+      }
+    ]
+  }
+]

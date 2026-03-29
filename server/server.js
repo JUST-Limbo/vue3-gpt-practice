@@ -1,45 +1,32 @@
+/* eslint-env node */
 import Koa from 'koa'
-import Router from 'koa-router'
 import cors from '@koa/cors'
-import { WebSocketServer } from 'ws'
+import dotenv from 'dotenv'
+import path from 'node:path'
+import { fileURLToPath } from 'node:url'
+import { createApiRouter } from './apiRoutes.js'
+import { createWsServer } from './wsServer.js'
 
-import { processStringWithDelay } from './utils.js'
+const serverDir = path.dirname(fileURLToPath(import.meta.url))
+const rootDir = path.resolve(serverDir, '..')
+const nodeEnv = process.env.NODE_ENV === 'production' ? 'production' : 'development'
+const envFileName = `.env.${nodeEnv}`
 
-import historyRes from './mock.js'
-import MockData from './mock2.js'
+const envLocalFileName = `.env.${nodeEnv}.local`
+
+dotenv.config({ path: path.join(rootDir, '.env') })
+dotenv.config({ path: path.join(rootDir, envFileName), override: true })
+dotenv.config({ path: path.join(rootDir, envLocalFileName), override: true })
+dotenv.config({ path: path.join(serverDir, '.env') })
+dotenv.config({ path: path.join(serverDir, envFileName), override: true })
+dotenv.config({ path: path.join(serverDir, envLocalFileName), override: true })
 
 const app = new Koa()
 app.use(cors())
-
-const router = new Router()
-router.get('/', async (ctx, next) => {
-  ctx.body = 'Hello, Koa!'
-  next()
-})
-
-router.get('/getChatHistroy', async (ctx, next) => {
-  ctx.body = historyRes
-  next()
-})
-
+const router = createApiRouter()
 app.use(router.routes()).use(router.allowedMethods())
 
 app.listen(3000, () => {
-  console.log('Server is running on port 3000')
+    console.log('Server is running on port 3000')
 })
-
-const wss = new WebSocketServer({ port: 8080 })
-wss.on('connection', function connection(ws) {
-  ws.on('message', function incoming() {
-    processStringWithDelay(
-      MockData[parseInt(Math.random() * 4)],
-      100,
-      (subStr) => {
-        ws.send(JSON.stringify({ type: 'answer', content: subStr }))
-      },
-      () => {
-        ws.send(JSON.stringify({ type: 'DONE' }))
-      }
-    )
-  })
-})
+createWsServer(8080)

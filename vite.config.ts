@@ -11,7 +11,9 @@ import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 export default defineConfig({
     plugins: [
         vue(),
-        VueDevTools(),
+        VueDevTools({
+            launchEditor: 'cursor'
+        }),
         AutoImport({
             imports: ['vue', "vue-router", "pinia"],
             vueTemplate: true,

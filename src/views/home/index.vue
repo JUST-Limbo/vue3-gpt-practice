@@ -1,18 +1,35 @@
 <script setup lang="ts">
 import Sidebar from './cmp/sidebar.vue'
 import ChatWindow from './cmp/chatWindow.vue'
+import { homeStateKey } from './context'
+import { useHomeInit } from './composables/useHomeInit'
+import type { gptMockNamespace } from '@/api/interface/gptmock'
 
-import { useScrollToBottom } from '@/hooks/useScrollToBottom'
-const { scrollToBottom } = useScrollToBottom('.chat-window-body')
-import { getChatHistory } from '@/api/gptmock'
-import { useGptStore } from '@/stores/gptStore'
+const chatHistory = ref<gptMockNamespace.history>([])
+const curChat = ref<Nullable<gptMockNamespace.historyItem>>(null)
+const chatWindowScollLock = ref(false)
+function unLockScroll () {
+    chatWindowScollLock.value = false
+}
+function lockScroll () {
+    chatWindowScollLock.value = true
+}
 
-const { chatHistory, curChat } = storeToRefs(useGptStore())
+provide(homeStateKey, {
+    chatHistory,
+    curChat,
+    chatWindowScollLock,
+    unLockScroll,
+    lockScroll
+})
 
-getChatHistory().then(res => {
-    chatHistory.value = res
-    curChat.value = res[0]
-    scrollToBottom()
+const { initHomeData } = useHomeInit({
+    chatHistory,
+    curChat
+})
+
+onMounted(async () => {
+    await initHomeData()
 })
 </script>
 

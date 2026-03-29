@@ -1,42 +1,93 @@
-@mixin FlashingCursor {
-  animation: blink 1s steps(5, start) infinite;
-  content: '▋';
-  margin-left: 0.25rem;
-  vertical-align: baseline;
-}
-
-@keyframes blink {
-  0%,
-  100% {
-    opacity: 0;
-  }
-
-  25%,
-  50% {
-    opacity: 1;
-  }
-}
-
-.chat-markdown-body-rendering {
-  &:empty:after {
-    content: '思考中...';
-    animation: blink 1s steps(5, start) infinite;
-    margin-left: 0.25rem;
-    vertical-align: baseline;
-  }
-
-  //   // 打字机光标(废案)
-  //   > :not(ol):not(ul):not(pre):last-child:after,
-  //   > pre:last-child code:after,
-  //   > ol:last-child li:last-child:after,
-  //   > ul:last-child li:last-child:after {
-  //     @include FlashingCursor;
-  //   }
-}
-
 .chat-markdown-body {
   line-height: 1.5;
-  background: red;
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin: 0.75em 0 0.35em;
+    font-weight: 600;
+    line-height: 1.35;
+  }
+
+  h1 {
+    font-size: 1.35em;
+  }
+
+  h2 {
+    font-size: 1.2em;
+  }
+
+  h3 {
+    font-size: 1.08em;
+  }
+
+  p {
+    margin: 0.5em 0;
+  }
+
+  p:first-child {
+    margin-top: 0;
+  }
+
+  p:last-child {
+    margin-bottom: 0;
+  }
+
+  ul,
+  ol {
+    margin: 0.5em 0;
+    padding-left: 1.4em;
+  }
+
+  blockquote {
+    margin: 0.75em 0;
+    padding: 0.25em 0 0.25em 12px;
+    border-left: 3px solid rgba(0, 0, 0, 0.12);
+    color: rgba(0, 0, 0, 0.65);
+  }
+
+  hr {
+    margin: 1em 0;
+    border: none;
+    border-top: 1px solid var(--border-in-light, rgba(0, 0, 0, 0.1));
+  }
+
+  a {
+    color: var(--primary, #409eff);
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  table {
+    border-collapse: collapse;
+    width: max-content;
+    max-width: 100%;
+    margin: 0.75em 0;
+    font-size: 0.95em;
+  }
+
+  th,
+  td {
+    border: 1px solid var(--border-in-light, rgba(0, 0, 0, 0.12));
+    padding: 6px 10px;
+    text-align: left;
+    vertical-align: top;
+  }
+
+  th {
+    background-color: rgba(0, 0, 0, 0.04);
+    font-weight: 600;
+  }
+
+  tbody tr:nth-child(even) td {
+    background-color: rgba(0, 0, 0, 0.02);
+  }
 
   .highlight-pre {
     position: relative;
@@ -47,7 +98,7 @@
     .highlight-code {
       display: block;
       font-size: 12px;
-      padding: 1rem;
+      padding: 1.5rem 1rem;
       overflow: auto;
     }
 

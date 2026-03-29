@@ -2,33 +2,33 @@
 import { useScroll } from '@vueuse/core'
 import ChatItemUser from './chatItemUser.vue'
 import ChatItemBot from './chatItemBot.vue'
-
-import { useGptStore } from '@/stores/gptStore'
-const { lockScroll } = useGptStore()
-const { curChat, chatWindowScollLock } = storeToRefs(useGptStore())
-
+import { useHomeState } from '../context'
+const { lockScroll, curChat, chatWindowScollLock } = useHomeState()
 
 const chatWindowBody = ref<HTMLElement>()
 const { directions, isScrolling, y } = useScroll(chatWindowBody)
 watch(directions, (newdirections) => {
     if (isScrolling && newdirections.top && !chatWindowScollLock.value) {
-        const scrollHeight = chatWindowBody.value!.scrollHeight
-        const offsetHeight = chatWindowBody.value!.offsetHeight
+        const body = chatWindowBody.value
+        if (!body) return
+        const scrollHeight = body.scrollHeight
+        const offsetHeight = body.offsetHeight
         const scrollTop = y.value
-        if ((scrollHeight - (scrollTop + offsetHeight)) > 50) {
+        if (scrollHeight - (scrollTop + offsetHeight) > 50) {
             lockScroll()
         }
     }
 })
 
 const chatMessages = computed(() => {
-    return curChat.value?.chatRecords || []
+    if (!curChat.value) return []
+    return curChat.value.chatRecords
 })
 </script>
 
 <template>
     <div ref="chatWindowBody" class="chat-window-body">
-        <template v-for="(messageItem) in chatMessages" :key="messageItem.id">
+        <template v-for="messageItem in chatMessages" :key="messageItem.id">
             <ChatItemUser v-if="messageItem.type == 'question'" v-bind="messageItem" />
             <ChatItemBot v-else v-bind="messageItem" />
         </template>

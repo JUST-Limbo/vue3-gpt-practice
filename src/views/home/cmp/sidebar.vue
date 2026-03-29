@@ -1,28 +1,10 @@
 <script setup lang="ts">
 import ChatList from './chatList.vue'
-import { uuid, generateRandomSixDigitNumberExclusive } from '@/utils/index'
-import { getCurrentTimestamp } from '@/utils'
+import { useHomeState } from '../context'
+const { curChat } = useHomeState()
 
-import { useGptStore } from '@/stores/gptStore'
-const { chatHistory, curChat, curChatEngine } = storeToRefs(useGptStore())
-
-function createNewChat () {
-    const uid = uuid()
-    chatHistory.value.push({
-        uid,
-        chatRecords: [
-            {
-                id: generateRandomSixDigitNumberExclusive(),
-                uid,
-                type: 'answer',
-                message: "有什么可以帮你的吗",
-                chatEngine: curChatEngine.value,
-                createTime: getCurrentTimestamp(),
-                pid: null
-            }
-        ]
-    })
-    curChat.value = chatHistory.value[chatHistory.value.length - 1]
+function createNewChat() {
+    curChat.value = null
 }
 </script>
 
@@ -39,7 +21,7 @@ function createNewChat () {
         </div>
         <div class="home-sidebar-tail">
             <button class="new-chat" @click="createNewChat">
-                <img class="add-icon" src="@/assets/icons/add.svg" alt="" width="16">
+                <img class="add-icon" src="@/assets/icons/add.svg" alt="" width="16" />
                 <div class="add-text">新的聊天</div>
             </button>
         </div>
@@ -94,7 +76,7 @@ function createNewChat () {
             justify-content: center;
             padding: 10px;
             cursor: pointer;
-            transition: all .3s ease;
+            transition: all 0.3s ease;
             overflow: hidden;
             -webkit-user-select: none;
             -moz-user-select: none;
@@ -105,7 +87,7 @@ function createNewChat () {
             box-shadow: var(--card-shadow);
 
             &:hover {
-                filter: brightness(.9);
+                filter: brightness(0.9);
             }
 
             .add-icon {

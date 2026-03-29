@@ -6,3 +6,10 @@ export function getChatHistory (): Promise<gptMockNamespace.history> {
         url: '/getChatHistroy',
     }).then(res => res.data)
 }
+
+export function deleteChatByUid (uid: string): Promise<gptMockNamespace.history> {
+    return gptService({
+        url: '/chat-history/' + encodeURIComponent(uid),
+        method: 'delete'
+    }).then((res: { data: gptMockNamespace.history }) => res.data)
+}

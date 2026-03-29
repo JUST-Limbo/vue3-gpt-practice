@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import ChatInputPanel from './chatInputPanel.vue'
 import ChatWindowBody from './chatWindowBody.vue'
-import { useGptStore } from '@/stores/gptStore'
-const { curChat } = storeToRefs(useGptStore())
+import { useHomeState } from '../context'
+const { curChat } = useHomeState()
 
 import { useCodeCopy } from '@/hooks/useCodeCopy'
 const codeCopyPower = useCodeCopy()
@@ -15,12 +15,12 @@ onBeforeUnmount(() => {
 <template>
     <div class="chat-window-content">
         <div class="window-header">
-            <div class="window-header-title" v-if="curChat">
+            <div class="window-header-title" v-if="curChat && curChat.chatRecords.length > 0">
                 <div class="window-header-main-title">{{ curChat.chatRecords[0].message }}</div>
                 <div class="window-header-sub-title">共 {{ curChat.chatRecords.length }} 条对话</div>
             </div>
         </div>
-        <ChatWindowBody />
+        <ChatWindowBody :key="curChat?.uid" />
         <ChatInputPanel />
     </div>
 </template>
