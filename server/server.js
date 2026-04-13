@@ -1,6 +1,7 @@
 /* eslint-env node */
 import Koa from 'koa'
 import cors from '@koa/cors'
+import bodyParser from 'koa-bodyparser'
 import dotenv from 'dotenv'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
@@ -23,6 +24,15 @@ dotenv.config({ path: path.join(serverDir, envLocalFileName), override: true })
 
 const app = new Koa()
 app.use(cors())
+app.use(
+    bodyParser({
+        enableTypes: ['json'],
+        jsonLimit: '10mb',
+        onerror(_err, ctx) {
+            ctx.throw(400, '请求体不是合法 JSON')
+        }
+    })
+)
 const router = createApiRouter()
 app.use(router.routes()).use(router.allowedMethods())
 

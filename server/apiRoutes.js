@@ -1,9 +1,12 @@
 /* eslint-env node */
 import Router from 'koa-router'
 import { readHistory, removeChatByUid } from './historyStore.js'
+import { handleDeepseekChatCompletions } from './deepseekHttpProxy.js'
 
 export function createApiRouter() {
     const router = new Router()
+
+    router.post('/api/deepseek/chat/completions', handleDeepseekChatCompletions)
 
     router.get('/', async (ctx, next) => {
         ctx.body = 'Hello, Koa!'
